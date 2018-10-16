@@ -10,10 +10,7 @@
           <h4 class="card-subtitle">{{$product->price}}</h4>
           <p class="card-text">{{$product->description}}</p>
           <div class="card-actions">
-            {!! Form::open(['method' => 'POST', 'url' => '/in_shopping_carts']) !!}
-             <input type="hidden" name="product_id" value="{{$product->id}}"></input>
-             <input type="submit" class="btn btn-success" value="Add to cart"></input>
-            {!! Form::close() !!}
+            <add-product-btn :product='{!! json_encode($product) !!}'></add-product-btn>
             @include('products.delete')
           </div>
         </div>
