@@ -9,6 +9,20 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+const Vuex = require('vuex');
+window.store = new Vuex.Store({
+  state: {
+    productsCount: 0,
+  },
+  mutations: {
+    increment(state){
+      return state.productsCount++
+    },
+    set(state, value){
+      return state.productsCount = value
+    }
+  }
+})
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -20,6 +34,7 @@ Vue.component('products', require('./components/products/ProductsComponent.vue')
 Vue.component('product-card', require('./components/products/ProductCardComponent.vue'));
 Vue.component('material-transition-group', require('./components/animations/MaterialCollectionComponent.vue'));
 Vue.component('add-product-btn', require('./components/products/AddToCartComponent.vue'));
+Vue.component('products-count', require('./components/shopping_cart/CounterComponent.vue'));
 
 const app = new Vue({
     el: '#app'

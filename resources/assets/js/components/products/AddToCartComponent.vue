@@ -25,6 +25,7 @@ export default {
         }
       }).then( () => {
         console.log(`Product added`);
+        window.store.commit("increment");
       })
     }
   }
