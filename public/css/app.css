@@ -10480,3 +10480,13 @@ a.text-dark:focus {
   padding: 1em;
 }
 
+.actions {
+  margin-top: 1em;
+}
+
+.text-center .pagination {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+

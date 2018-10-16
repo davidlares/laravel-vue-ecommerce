@@ -1,17 +1,17 @@
-{!! Form::open(['url' => '/products', 'method' => 'POST', 'class' => 'app-form']) !!}
+{!! Form::open(['route' => [$product->url(),$product->id], 'method' => $product->method(), 'class' => 'app-form']) !!}
   <div>
     {!! Form::label('title','Product Title') !!}
-    {!! Form::text('title','',['class' => 'form-control']) !!}
+    {!! Form::text('title',$product->title,['class' => 'form-control']) !!}
   </div>
 
   <div>
     {!! Form::label('description','Product description') !!}
-    {!! Form::textarea('description','',['class' => 'form-control']) !!}
+    {!! Form::textarea('description',$product->description,['class' => 'form-control']) !!}
   </div>
 
   <div>
     {!! Form::label('price','Product Price') !!}
-    {!! Form::number('price',0,['class' => 'form-control']) !!}
+    {!! Form::number('price',$product->price,['class' => 'form-control']) !!}
   </div>
 
   <div>

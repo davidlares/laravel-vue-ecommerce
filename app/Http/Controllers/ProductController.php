@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 
 class ProductController extends Controller
 {
+    public function __construct(){
+      $this->middleware('auth', ['except' => ['index','show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::paginate(15);
+        return view('products.index', ['products' => $products]);
     }
 
     /**
@@ -23,7 +28,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $product = new Product;
+        return view('products.create',['product' => $product]);
     }
 
     /**
@@ -34,7 +40,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $options = [
+          'title' => $request->title,
+          'description' => $request->description,
+          'price' => $request->price
+        ];
+
+        if(Product::create($options)){
+          return redirect('/');
+        } else {
+          return view('products.create');
+        }
     }
 
     /**
@@ -45,7 +61,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::find($id);
+        return view('products.show',['product' => $product]);
     }
 
     /**
@@ -56,7 +73,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        return view('products.edit',['product' => $product]);
     }
 
     /**
@@ -68,7 +86,15 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        $product->title = $request->title;
+        $product->price = $request->price;
+        $product->description = $request->description;
+        if($product->save()){
+          return redirect('/');
+        } else {
+          return view('product.edit',['product' => $product]);
+        }
     }
 
     /**
@@ -79,6 +105,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::destroy($id);
+        return redirect('/products');
     }
 }
