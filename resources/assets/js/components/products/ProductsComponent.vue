@@ -1,8 +1,8 @@
 <template>
   <section>
-    <div class="row">
-      <product-card :product="product" v-for="product in products" :key="product.id"></product-card>
-    </div>
+    <material-transition-group tag="div" class="row">
+      <product-card :product="product" :data-index="index" v-for="(product,index) in products" :key="product.id"></product-card>
+    </material-transition-group>
   </section>
 </template>
 <script>
@@ -11,11 +11,18 @@ export default {
   data() {
     return {
       name: 'this is a component attr',
-      products: [
-        { title: 'Curso Ruby', price: 200, description: 'This is a description'},
-        { title: 'Curso Laravel', price: 250, description: 'This is a description'},
-        { title: 'Curso Python', price: 220, description: 'This is a description'},
-      ]
+      products: [],
+      endpoint: '/products'
+    }
+  },
+  created(){
+    this.fetchProducts();
+  },
+  methods: {
+    fetchProducts(){
+      axios.get(this.endpoint).then((response) => {
+        this.products = response.data.data
+      });
     }
   }
 }

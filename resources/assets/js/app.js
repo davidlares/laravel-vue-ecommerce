@@ -18,6 +18,7 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('products', require('./components/products/ProductsComponent.vue'));
 Vue.component('product-card', require('./components/products/ProductCardComponent.vue'));
+Vue.component('material-transition-group', require('./components/animations/MaterialCollectionComponent.vue'));
 
 const app = new Vue({
     el: '#app'

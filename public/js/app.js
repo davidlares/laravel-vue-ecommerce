@@ -14015,6 +14015,7 @@ window.Vue = __webpack_require__(37);
 Vue.component('example-component', __webpack_require__(40));
 Vue.component('products', __webpack_require__(43));
 Vue.component('product-card', __webpack_require__(55));
+Vue.component('material-transition-group', __webpack_require__(60));
 
 var app = new Vue({
   el: '#app'
@@ -47863,8 +47864,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       name: 'this is a component attr',
-      products: [{ title: 'Curso Ruby', price: 200, description: 'This is a description' }, { title: 'Curso Laravel', price: 250, description: 'This is a description' }, { title: 'Curso Python', price: 220, description: 'This is a description' }]
+      products: [],
+      endpoint: '/products'
     };
+  },
+  created: function created() {
+    this.fetchProducts();
+  },
+
+  methods: {
+    fetchProducts: function fetchProducts() {
+      var _this = this;
+
+      axios.get(this.endpoint).then(function (response) {
+        _this.products = response.data.data;
+      });
+    }
   }
 });
 
@@ -47876,18 +47891,22 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", [
-    _c(
-      "div",
-      { staticClass: "row" },
-      _vm._l(_vm.products, function(product) {
-        return _c("product-card", {
-          key: product.id,
-          attrs: { product: product }
+  return _c(
+    "section",
+    [
+      _c(
+        "material-transition-group",
+        { staticClass: "row", attrs: { tag: "div" } },
+        _vm._l(_vm.products, function(product, index) {
+          return _c("product-card", {
+            key: product.id,
+            attrs: { product: product, "data-index": index }
+          })
         })
-      })
-    )
-  ])
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -48051,7 +48070,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("h4", { staticClass: "card-subtitle" }, [
-            _vm._v(_vm._s(_vm.product.price))
+            _vm._v(_vm._s(_vm.product.humanPrice))
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "card-text" }, [
@@ -48071,6 +48090,92 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-1356b802", module.exports)
   }
 }
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(11)
+/* script */
+var __vue_script__ = __webpack_require__(61)
+/* template */
+var __vue_template__ = null
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/animations/MaterialCollectionComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-be97b122", Component.options)
+  } else {
+    hotAPI.reload("data-v-be97b122", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  functional: true,
+  render: function render(createElement, context) {
+    var data = _extends({}, context.data, {
+      css: false,
+      on: {
+        beforeEnter: function beforeEnter(el) {
+          el.style.opacity = 0;
+          el.style.transform = "scale(0)";
+          el.style.transition = "all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1)";
+        },
+        enter: function enter(el) {
+          var delay = el.dataset.index * 200;
+          setTimeout(function () {
+            el.style.opacity = 1;
+            el.style.transform = "scale(1)";
+          }, delay);
+        },
+        leave: function leave(el) {
+          var delay = el.dataset.index * 200;
+          setTimeout(function () {
+            el.style.opacity = 0;
+            el.style.transform = "scale(0)";
+          }, delay);
+        }
+      }
+    });
+    return createElement('transition-group', data, context.children);
+  }
+});
 
 /***/ })
 /******/ ]);
