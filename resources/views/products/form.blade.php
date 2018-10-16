@@ -15,7 +15,6 @@
   </div>
 
   <div>
-    <br>
     <input type="submit" value="Create Product" name="save" class="btn btn-primary">
   </div>
 {!! Form::close() !!}

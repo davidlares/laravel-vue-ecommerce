@@ -1,9 +1,8 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-  <div class="card">
+  <div class="card padding">
     <header>
-      <br>
       <h4 class="text-center">Create new product</h4>
     </header>
     <div class="card-body">
