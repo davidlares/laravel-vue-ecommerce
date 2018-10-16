@@ -35,6 +35,7 @@ Vue.component('product-card', require('./components/products/ProductCardComponen
 Vue.component('material-transition-group', require('./components/animations/MaterialCollectionComponent.vue'));
 Vue.component('add-product-btn', require('./components/products/AddToCartComponent.vue'));
 Vue.component('products-count', require('./components/shopping_cart/CounterComponent.vue'));
+Vue.component('products-sc', require('./components/shopping_cart/ProductsShoppingCartComponent.vue'));
 
 const app = new Vue({
     el: '#app'

@@ -10490,3 +10490,23 @@ a.text-dark:focus {
           justify-content: center;
 }
 
+.card-product {
+  max-width: 400px;
+  margin: 1em 0;
+}
+
+.card-product strong {
+  text-transform: uppercase;
+}
+
+.card-product.total {
+  margin-top: 2em;
+  border: 1px solid #eee;
+}
+
+.payments img {
+  margin-bottom: 30px;
+  display: block;
+  text-align: center;
+}
+

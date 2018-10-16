@@ -21,6 +21,7 @@ class ProductsCollection extends ResourceCollection
               'title' => $elem->title,
               'id' => $elem->id,
               'humanPrice' => "$".($elem->price / 100),
+              'numberPrice' => $elem->price / 100,
               'image' => $elem->image_url,
               'description' => $elem->description
             ];
