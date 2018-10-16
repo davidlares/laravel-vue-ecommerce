@@ -19,16 +19,11 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $sessionName = 'shopping_cart_id';
-        $scid = $request->session()->get($sessionName);
-        $shopping_cart = ShoppingCart::findOrCreateById($scid);
-        $request->session()->put($sessionName, $shopping_cart->id);
-
         $products = Product::paginate(15);
         if($request->wantsJson()){
           return new ProductsCollection($products);
         }
-        return view('products.index', ['products' => $products, 'shopping_cart' => $shopping_cart]);
+        return view('products.index', ['products' => $products]);
     }
 
     /**
