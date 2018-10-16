@@ -15,6 +15,8 @@ class CreateShoppingCartsTable extends Migration
     {
         Schema::create('shopping_carts', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('status')->default(0);
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }
