@@ -3,10 +3,11 @@
 <div class="container">
   <div class="card">
     <header>
-      <h4>Create new product</h4>
+      <br>
+      <h4 class="text-center">Create new product</h4>
     </header>
     <div class="card-body">
-
+      @include('products.form')
     </div>
   </div>
 </div>
