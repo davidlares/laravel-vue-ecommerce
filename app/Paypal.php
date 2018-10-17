@@ -37,8 +37,8 @@ class Paypal {
         'payment_method' => 'paypal'
       ],
       'redirect_urls' => [
-        'cancel_url' => '/',
-        'return_url' => '/'
+        'cancel_url' => URL::route('cart'),
+        'return_url' => URL::route('payments.completed')
       ]
     ];
 
@@ -46,9 +46,17 @@ class Paypal {
     return $request;
   }
 
+  // authorization
   public function charge($amount){
     return $this->client->execute($this->buildPaymentRequest($amount));
   }
-  
+
   // executing charge
+  public function execute($paymentId, $payerId){
+      $paymentExecute = new PaymentExecuteRequest($paymentId);
+      $paymentExecute->body = [
+        'payer_id' => $payerId
+      ];
+      return $this->client->execute($paymentExecute);
+  }
 }

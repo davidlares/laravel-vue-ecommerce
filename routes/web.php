@@ -24,3 +24,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // paypal
 Route::get('/pay','PaymentsController@pay')->name('payments.pay');
+Route::get('/pay/completed','PaymentsController@completed')->name('payments.completed');

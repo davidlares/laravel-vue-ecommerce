@@ -16,7 +16,7 @@
               <br>
               <img src="https://icon-icons.com/icons2/730/PNG/512/paypal_icon-icons.com_62759.png" alt="" height="45" width="45">
             </center>
-            <a href="#" class="btn btn-primary">Proceed to pay</a>
+            <a href="{{url('/pay')}}" class="btn btn-primary">Proceed to pay</a>
           </div>
         </div>
       </div>
