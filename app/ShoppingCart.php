@@ -26,4 +26,9 @@ class ShoppingCart extends Model
       // return $this->products()->sum('price') / 100;
       return $this->products()->sum('price');
     }
+
+    public function amountInCents(){
+      // return $this->products()->sum('price') / 100;
+      return $this->products()->sum('price');
+    }
 }
