@@ -21,3 +21,6 @@ Route::resource('in_shopping_carts','ProductInShoppingCartsController',['only' =
 Route::get('/cart','CartController@show')->name('cart');
 Route::get('/cart/products','CartController@products')->name('cart.products');
 Route::get('/home', 'HomeController@index')->name('home');
+
+// paypal
+Route::get('/pay','PaymentsController@pay')->name('payments.pay');

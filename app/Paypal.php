@@ -46,5 +46,9 @@ class Paypal {
     return $request;
   }
 
+  public function charge($amount){
+    return $this->client->execute($this->buildPaymentRequest($amount));
+  }
+  
   // executing charge
 }
