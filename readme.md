@@ -1,65 +1,44 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# davidVueCommerce
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Este repositorio es una experiencia de E-commerce desarrollado con Laravel 5.x y Vue.JS, internamente adopta controles y características nativas del framework Laravel y su alta acoplación con Vue.JS. Integra además el SDK en PHP de Paypal en su versión 2.x (beta)
 
-## About Laravel
+## Paypal Setup
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+Es importantísimo crear o tener una cuenta en paypal para poder registrar un Proyecto en modo sandbox, además de
+crear usuarios buyers y sellers para interactuar con las ventas de los productos el E-commerce
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Los valores del proyecto (ClientID y Client Secret) deberán estar incluídos en el archivo en entornos de Laravel bajo los identificadores `PAYPAL_CLIENT_ID` y `PAYPAL_CLIENT_SECRET` respectivamente
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+## Paquetes usados
 
-## Learning Laravel
+NodeJS
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+  - axios
+  - laravel Mix
+  - VueJS
+  - VueX
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+PHP
 
-## Laravel Sponsors
+  - laravel/framework
+  - laravelcollective/html
+  - paypal/rest-api-sdk-php
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+## Global Env
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
+  - Renombra el archivo `.env.example` por `.env` y ingresa tus credenciales
 
-## Contributing
+## Uso
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+   - Clona o descarga el ZIP del proyecto
+   - Teniendo en cuenta un entorno de desarroollo LAMP configurado, instala las dependencias PHP con composer `composer install`
+   - Teniendo en cuenta tener instalado NodeJS en su equipo, instale la dependencias de Node con NPM `npm install`
+   - Correr las migraciones y setups de la base de datos, `ver archivo .env` para luego `php artisan migrate`
 
-## Security Vulnerabilities
+## Creditos
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+ - [David E Lares S](https://twitter.com/@davidlares3)
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+ - [MIT](https://opensource.org/licenses/MIT)
