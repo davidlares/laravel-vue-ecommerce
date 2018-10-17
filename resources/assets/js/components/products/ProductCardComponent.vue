@@ -1,7 +1,7 @@
 <template>
   <div :key="product.id" class="col-xs-12 col-sm-10 col-md-4">
     <div class="card">
-        <header class="bg-primary padding"></header>
+        <header class="bg-primary padding white-font">Product #{{product.id}}</header>
         <div class="card-body">
           <h2 class="card-title">
             <a :href="'/products/' + product.id">{{product.title}}</a>

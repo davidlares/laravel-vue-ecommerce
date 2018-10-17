@@ -10510,3 +10510,11 @@ a.text-dark:focus {
   text-align: center;
 }
 
+.white-font {
+  color: white !important;
+}
+
+.delete-button {
+  text-decoration: none;
+}
+

@@ -15,6 +15,8 @@
                     @endif
 
                     You are logged in!
+                    <br>
+                    <a href="{{url('/products')}}">Go to products</a>
                 </div>
             </div>
         </div>

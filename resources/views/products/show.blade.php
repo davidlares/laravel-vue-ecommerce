@@ -7,7 +7,7 @@
         </header>
         <div class="card-body padding">
           <h2 class="card-title">{{$product->title}}</h2>
-          <h4 class="card-subtitle">{{$product->price}}</h4>
+          <h4 class="card-subtitle">{{$product->price}} $</h4>
           <p class="card-text">{{$product->description}}</p>
           <div class="card-actions">
             <add-product-btn :product='{!! json_encode($product) !!}'></add-product-btn>
